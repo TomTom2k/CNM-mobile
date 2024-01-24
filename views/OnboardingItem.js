@@ -7,7 +7,7 @@ const OnboardingItem = ({ item }) => {
     return (
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
             <View style={[styles.container, { width }]}>
-                <View style={{ height: 300, width: width, backgroundColor: "#333" }}>
+                <View style={{ height: 300, width: width}}>
                     <Image source={item.image} style={styles.image} resizeMode='contain' />
                     <View style={{ flex: 0.3 }}>
                         <Text style={styles.title}>{item.title}</Text>
