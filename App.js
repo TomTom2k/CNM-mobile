@@ -5,10 +5,14 @@ import Login from './screens/Login';
 import SignUp from "./screens/SignUp";
 import Home from "./screens/Home";
 import Verifier from "./screens/Verifier";
+import ChatDetail from "./views/onHome/ChatDetail";
+import HeaderChat from "./views/HeaderChat";
 import HeaderNavigator from "./views/HeaderNavigator";
 import { AntDesign } from '@expo/vector-icons';
 import { View, Text, TouchableOpacity } from 'react-native'
 import React from 'react'
+import { Provider } from "react-redux";
+import store from "./views/store";
 
 // import BottomNavigator from './views/BottomNavigator';
 
@@ -17,12 +21,13 @@ const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
+    <Provider store={store}>
+       <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Welcome" component={Welcome} options={{ headerShown: false }} />
+        {/* <Stack.Screen name="Welcome" component={Welcome} options={{ headerShown: false }} />
         <Stack.Screen name="Login" component={Login} options={{ title: "Đăng nhập",  }} />
         <Stack.Screen name="Verifier" component={Verifier} options={{ title: "mã OTP",  }} />
-        <Stack.Screen name="SignUp" component={SignUp} options={{ title: "Đăng ký",  }} />
+        <Stack.Screen name="SignUp" component={SignUp} options={{ title: "Đăng ký",  }} /> */}
         <Stack.Screen name="Home" component={Home} options={
           {
             header: () => <HeaderNavigator />
@@ -48,8 +53,17 @@ export default function App() {
           //  }
           }
         } />
+        <Stack.Screen name="ChatDetail" component={ChatDetail} options={
+          {
+            header: () => <HeaderChat />,
+            headerShown: false
+          }
+        } />
       </Stack.Navigator>
     </NavigationContainer>
+
+    </Provider>
+   
 
   )
 }

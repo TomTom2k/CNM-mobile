@@ -46,7 +46,7 @@ const Login = ({navigation}) => {
                 <Text>câu hỏi thường gặp</Text>
                 <TouchableOpacity style= {styles.button_arrow}
                 
-                    onPress={() => { navigation.navigate('Verifier') }}
+                    onPress={() => { navigation.navigate('Home') }}
                 >
                 <AntDesign name="arrowright" size={24} color="white" />
                 </TouchableOpacity>
